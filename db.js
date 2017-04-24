@@ -11,8 +11,9 @@ const getData = (callback) => {
     if (err) {
       console.log(err);
     } else {
-      callback(res.values.map((val) => {
+      callback(res.values.map((val, idx) => {
         return {
+          range: `questions!${idx + 1}:${idx + 1}`,
           votes: val[0],
           username: val[1],
           body: val[2],
@@ -24,6 +25,24 @@ const getData = (callback) => {
     }
   });
 };
+
+// const markAsAnswered = (question, res) => {
+  
+// }
+
+const getRawResponse = (res) => {
+  sheets.spreadsheets.values.get({
+    spreadsheetId,
+    range: 'questions!all'
+  }, (err, googleRes) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(googleRes);
+    }
+  });
+  
+}
 
 const addQuestion = (username, questionText, callback) => {
   const value = [0, username, questionText, '', Date.now(), false];
@@ -50,3 +69,4 @@ const addQuestion = (username, questionText, callback) => {
 
 module.exports.addQuestion = addQuestion;
 module.exports.getData = getData;
+module.exports.getRawResponse = getRawResponse;
