@@ -4,6 +4,7 @@
   "description": "You have 24 hours to produce something compelling using the skills you've honed over the past five weeks.",
   "main": "index.js",
   "dependencies": {
+    "angular": "^1.6.4",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "googleapis": "^19.0.0"
