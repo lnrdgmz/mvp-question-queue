@@ -1,0 +1,21 @@
+{
+  "name": "hrnyc7-mvp-master",
+  "description": "You have 24 hours to produce something compelling using the skills you've honed over the past five weeks.",
+  "main": "index.js",
+  "authors": [
+    "Leo Gomez <leogomez@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "client/lib"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4"
+  }
+}

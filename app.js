@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 app.use(bodyParser.json());
+app.use(express.static('./client'));
 
 const handlers = require('./handlers.js');
 // const db = require('./db.js');
@@ -44,5 +45,7 @@ app.post('/questions', (req, res) => {
 app.put('/questions', (req, res) => {
   handlers.putHander(req, res);
 });
+
+
 
 app.listen(3000);
