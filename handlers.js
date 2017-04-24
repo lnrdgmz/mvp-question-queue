@@ -7,11 +7,22 @@ const getHandler = (req, res) => {
   });
 };
 
+const rawHandler = (res) => {
+  db.getRawResponse(res);
+};
+
 const postHandler = (req, res) => {
   db.addQuestion(req.body.name, req.body.question, (data) => {
     res.send(data.values);
   });
-}
+};
+
+const putHandler = (req, res) => {
+  db.updateQuestion(req.body, res);
+};
+
 
 exports.getHandler = getHandler;
 exports.postHandler = postHandler;
+exports.rawHandler = rawHandler;
+exports.putHander = putHandler;

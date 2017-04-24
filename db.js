@@ -26,9 +26,31 @@ const getData = (callback) => {
   });
 };
 
-// const markAsAnswered = (question, res) => {
-  
-// }
+const updateQuestion = (question, res) => {
+  sheets.spreadsheets.values.update({
+    spreadsheetId,
+    range: question.range,
+    valueInputOption: 'USER_ENTERED',
+    includeValuesInResponse: true,
+    resource: {
+      values: [ [
+        question.votes,
+        question.username,
+        question.body,
+        question.link,
+        question.createdAt,
+        question.answered
+      ] ]
+    }
+  }, (err, googleRes) => {
+    if (err) {
+      console.error(err);
+      res.send('There was an error in updateQuestion');
+    } else {
+      res.send(googleRes);
+    };
+  });
+};
 
 const getRawResponse = (res) => {
   sheets.spreadsheets.values.get({
@@ -38,10 +60,9 @@ const getRawResponse = (res) => {
     if (err) {
       console.log(err);
     } else {
-      res.send(googleRes);
+      res.send(googleRes.updates.updatedData);
     }
   });
-  
 }
 
 const addQuestion = (username, questionText, callback) => {
@@ -70,3 +91,4 @@ const addQuestion = (username, questionText, callback) => {
 module.exports.addQuestion = addQuestion;
 module.exports.getData = getData;
 module.exports.getRawResponse = getRawResponse;
+module.exports.updateQuestion = updateQuestion;

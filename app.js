@@ -29,6 +29,9 @@ auth.authorize((err, tokens) => {
  * Routes
  *
  */
+app.get('/raw', (req, res) => {
+  handlers.rawHandler(res);
+});
 
 app.get('/questions', (req, res) => {
   handlers.getHandler(req, res);
@@ -36,6 +39,10 @@ app.get('/questions', (req, res) => {
 
 app.post('/questions', (req, res) => {
   handlers.postHandler(req, res);
+});
+
+app.put('/questions', (req, res) => {
+  handlers.putHander(req, res);
 });
 
 app.listen(3000);
