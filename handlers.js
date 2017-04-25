@@ -2,7 +2,6 @@ const db = require('./db.js');
 
 const getHandler = (req, res) => {
   db.getData((data) => {
-    console.log(data);
     res.send(data);
   });
 };
