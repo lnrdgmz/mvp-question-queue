@@ -1,5 +1,4 @@
 angular.module('app', [])
-
   .controller('QuestionViewController', function ($http, $scope, $interval) {
     $scope.questions = [];
     $scope.showAnswered = false;
@@ -29,13 +28,11 @@ angular.module('app', [])
     };
     $scope.getQuestions();
     $interval($scope.getQuestions, 5000);
+    $scope.$on('refreshQueue', function () {
+      $scope.getQuestions();
+    })
   })
-  .controller('FormController', function ($scope) {
-    $scope.myAlert = function (str) {
-      alert(str);
-    };
-  })
-  .controller('FormController', function($scope, $http) {
+  .controller('FormController', function($scope, $http, $rootScope) {
     $scope.submitQuestion = function () {
       console.log($scope.question.name);
       console.log($scope.question.body);
@@ -47,6 +44,7 @@ angular.module('app', [])
       })
         .then(function (res) {
           console.log(res.status);
+          $rootScope.$broadcast('refreshQueue');
         });
       $scope.question = {};
     };
