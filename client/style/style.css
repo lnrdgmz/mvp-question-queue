@@ -24,3 +24,6 @@ cite {
     background-color: #def0f2;
     padding: 1rem;
 }
+.answered-link {
+    cursor: pointer;
+}
