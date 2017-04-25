@@ -6,3 +6,7 @@ body {
 input, textarea {
     width: 100%;
 }
+
+cite {
+    font-size: 0.75em;
+}
