@@ -3,18 +3,27 @@
   <head>
     <script src="./lib/angular/angular.js" ></script>
     <script src="./app.js" ></script>
+    <link rel="stylesheet" type="text/css" href="style/style.css" >
     <title>
       Question Queue
     </title>
   </head>
   <body>
-
+    <h1>Question Queue</h1>
     <!-- Question submit form -->
     <div>
       <form ng-controller="FormController as form" ng-submit="submitQuestion()">
-        <input type="text" placeholder="Your name" name="name" ng-model="question.name">
-        <textarea placeholder="Ask a question" ng-model="question.body" required></textarea>
-        <input placeholder="Add a link" ng-model="question.link" >
+        <label> Name
+          <input type="text" placeholder="Your name" name="name" ng-model="question.name">
+        </label>
+        <label>
+          Question
+          <textarea placeholder="Ask a question" ng-model="question.body" required></textarea>
+        </label>
+        <label>
+          Link
+          <input placeholder="Add a link" ng-model="question.link" >
+        </label>
         <button type="submit" >Submit</button>
       </form>
     </div>
