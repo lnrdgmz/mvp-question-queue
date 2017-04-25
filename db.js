@@ -65,8 +65,8 @@ const getRawResponse = (res) => {
   });
 }
 
-const addQuestion = (username, questionText, callback) => {
-  const value = [0, username, questionText, '', Date.now(), false];
+const addQuestion = (username, questionText, link, callback) => {
+  const value = [0, username, questionText, link, Date.now(), false];
   sheets.spreadsheets.values.append({
     spreadsheetId,
     range: 'questions!all',

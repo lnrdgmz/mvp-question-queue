@@ -11,7 +11,7 @@ const rawHandler = (res) => {
 };
 
 const postHandler = (req, res) => {
-  db.addQuestion(req.body.name, req.body.question, (data) => {
+  db.addQuestion(req.body.name, req.body.question, req.body.link, (data) => {
     res.send(data.values);
   });
 };

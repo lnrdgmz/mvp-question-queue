@@ -11,9 +11,10 @@
 
     <!-- Question submit form -->
     <div>
-      <form ng-controller="FormController as form" ng-submit="myAlert('Hello')">
-        <input type="text" placeholder="Your name" name="name">
-        <textarea placeholder="Ask a question" ></textarea>
+      <form ng-controller="FormController as form" ng-submit="submitQuestion()">
+        <input type="text" placeholder="Your name" name="name" ng-model="question.name">
+        <textarea placeholder="Ask a question" ng-model="question.body" required></textarea>
+        <input placeholder="Add a link" ng-model="question.link" >
         <button type="submit" >Submit</button>
       </form>
     </div>
@@ -24,7 +25,12 @@
         <p>
           {{question.body}}
         </p>
-        <cite>asked by {{question.username}} at {{question.createdAt | date}}</cite>
+        <cite>asked on {{question.createdAt | date}}</cite>
+        <span>Votes: {{question.votes}}</span>
+        <div>
+          <button ng-click="upvote(question)">&uarr;</button>
+          <button ng-click="markAsAnswered(question)">X</button>
+        </div>
       </div>
     </div>
   </body>
