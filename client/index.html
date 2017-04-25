@@ -21,7 +21,7 @@
 
     <!-- List of pending questions -->
     <div ng-controller="QuestionViewController as qView">
-      <div ng-repeat="question in questions">
+      <div ng-repeat="question in questions | filter : {'answered':'false'}">
         <p>
           {{question.body}}
         </p>
