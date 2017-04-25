@@ -1,12 +1,31 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="app">
   <head>
-    <script src="../node_modules/angular/angular.min.js" ></script>
+    <script src="./lib/angular/angular.js" ></script>
+    <script src="./app.js" ></script>
     <title>
       Question Queue
     </title>
   </head>
   <body>
-    {{Hello, world}}
+
+    <!-- Question submit form -->
+    <div>
+      <form ng-controller="FormController as form" ng-submit="myAlert('Hello')">
+        <input type="text" placeholder="Your name" name="name">
+        <textarea placeholder="Ask a question" ></textarea>
+        <button type="submit" >Submit</button>
+      </form>
+    </div>
+
+    <!-- List of pending questions -->
+    <div ng-controller="QuestionViewController as qView">
+      <div ng-repeat="question in questions">
+        <p>
+          {{question.body}}
+        </p>
+        <cite>asked by {{question.username}} at {{question.createdAt | date}}</cite>
+      </div>
+    </div>
   </body>
 </html>
