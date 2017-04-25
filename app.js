@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const morgan = require('morgan');
 
 app.use(bodyParser.json());
 app.use(express.static('./client'));
+app.use(morgan('tiny'));
 
 const handlers = require('./handlers.js');
 // const db = require('./db.js');
