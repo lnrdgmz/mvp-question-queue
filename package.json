@@ -1,8 +1,8 @@
 {
-  "name": "hrnyc7-mvp-master",
-  "version": "1.0.0",
-  "description": "You have 24 hours to produce something compelling using the skills you've honed over the past five weeks.",
-  "main": "index.js",
+  "name": "question-queue",
+  "version": "0.0.0",
+  "description": "A question queue for town-hall lectures",
+  "main": "app.js",
   "dependencies": {
     "angular": "^1.6.4",
     "body-parser": "^1.17.1",
