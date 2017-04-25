@@ -34,13 +34,17 @@
         </div>
       </div>
 
-      <h2>Answered Questions</h2>
-      <div ng-repeat="question in questions | filter : {'answered':'true'}">
-        <p>
-          {{question.body}}
-        </p>
-        <cite>asked on {{question.createdAt | date}}</cite>
-        <span>Votes: {{question.votes}}</span>
+      <h2 ng-click="toggleShowAnswered()">
+        {{showAnswered ? '&#9660;' : '&#9654;' }} Answered Questions
+      </h2>
+      <div ng-show="showAnswered">
+        <div ng-repeat="question in questions | filter : {'answered':'true'}">
+          <p>
+            {{question.body}}
+          </p>
+          <cite>asked on {{question.createdAt | date}}</cite>
+          <span>Votes: {{question.votes}}</span>
+        </div>
       </div>
     </div>
   </body>

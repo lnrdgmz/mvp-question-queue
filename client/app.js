@@ -2,6 +2,10 @@ angular.module('app', [])
 
   .controller('QuestionViewController', function ($http, $scope, $interval) {
     $scope.questions = [];
+    $scope.showAnswered = false;
+    $scope.toggleShowAnswered = function () {
+      $scope.showAnswered = !$scope.showAnswered;
+    };
     $scope.getQuestions = function () {
       $http.get('http://localhost:3000/questions')
         .then(function (res) {
