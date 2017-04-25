@@ -35,6 +35,11 @@
         <p>
           {{question.body}}
         </p>
+        <span ng-show="question.link">
+          <a href="{{question.link}}">
+            Link to {{ question.link.split('/')[2] }}
+          </a>
+        </span>
         <cite>asked on {{question.createdAt | date}}</cite>
         <span>Votes: {{question.votes}}</span>
         <div>

@@ -6,7 +6,7 @@ angular.module('app', [])
       $scope.showAnswered = !$scope.showAnswered;
     };
     $scope.getQuestions = function () {
-      $http.get('https://question-queue.herokuapp.com/questions')
+      $http.get('/questions')
         .then(function (res) {
           console.log(res.data);
           $scope.questions = res.data;
@@ -14,14 +14,14 @@ angular.module('app', [])
     }; 
     $scope.upvote = function (q) {
       q.votes++;
-      $http.put('https://question-queue.herokuapp.com/questions', q)
+      $http.put('/questions', q)
         .then(function (res) {
           console.log(res.status);
         });
     };
     $scope.markAsAnswered = function (q) {
       q.answered = true;
-      $http.put('https://question-queue.herokuapp.com/questions', q)
+      $http.put('/questions', q)
         .then(function (res) {
           console.log(res.status);
         });
@@ -37,7 +37,7 @@ angular.module('app', [])
       console.log($scope.question.name);
       console.log($scope.question.body);
       console.log($scope.question.link);
-      $http.post('https://question-queue.herokuapp.com/questions', {
+      $http.post('/questions', {
         name: $scope.question.name,
         question: $scope.question.body,
         link: $scope.question.link
