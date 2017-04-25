@@ -11,7 +11,7 @@
   <body>
     <h1>Question Queue</h1>
     <!-- Question submit form -->
-    <div>
+    <div class="form-box">
       <form ng-controller="FormController as form" ng-submit="submitQuestion()">
         <label> Name
           <input type="text" placeholder="Your name" name="name" ng-model="question.name">
@@ -31,17 +31,17 @@
     <!-- List of pending questions -->
     <div ng-controller="QuestionViewController as qView">
       <h2>Pending Questions</h2>
-      <div ng-repeat="question in questions | filter : {'answered':'false'}">
+      <div class="question-box" ng-repeat="question in questions | filter : {'answered':'false'}">
         <p>
           {{question.body}}
         </p>
-        <span ng-show="question.link">
+        <div ng-show="question.link">
           <a href="{{question.link}}">
             Link to {{ question.link.split('/')[2] }}
           </a>
-        </span>
+        </div>
         <cite>asked on {{question.createdAt | date}}</cite>
-        <span>Votes: {{question.votes}}</span>
+        <div>Votes: {{question.votes}}</div>
         <div>
           <button ng-click="upvote(question)">&uarr;</button>
           <button ng-click="markAsAnswered(question)">X</button>
@@ -52,7 +52,7 @@
         {{showAnswered ? '&#9662;' : '&#9656;' }} Answered Questions
       </h2>
       <div ng-show="showAnswered">
-        <div ng-repeat="question in questions | filter : {'answered':'true'}">
+        <div class="question-box answered" ng-repeat="question in questions | filter : {'answered':'true'}">
           <p>
             {{question.body}}
           </p>

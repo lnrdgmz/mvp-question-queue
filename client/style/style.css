@@ -1,6 +1,7 @@
 body {
-    width: 500px;
+    width: 800px;
     margin: 10px auto;
+    background-color: #F8F8F8;
 }
 
 input, textarea {
@@ -9,4 +10,17 @@ input, textarea {
 
 cite {
     font-size: 0.75em;
+}
+
+.question-box {
+    background-color: #DEE6F2;
+    padding: 1rem;
+    margin: 0.5rem 0;
+}
+.answered {
+    background-color: #e6e9ef;
+}
+.form-box {
+    background-color: #def0f2;
+    padding: 1rem;
 }
