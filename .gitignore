@@ -1,7 +1,7 @@
 ### node etc ###
 
 # Config files
-config/credentials.json
+config/
 
 # Logs
 logs
